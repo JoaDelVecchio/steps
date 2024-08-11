@@ -1,24 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+const messages = [
+  "Learn React ⚛️",
+  "Apply for jobs 💼",
+  "Invest your new income 🤑",
+];
+
+const Numbers = ({ step }) => {
+  return (
+    <div className="numbers">
+      <div className={step === 0 ? "active" : ""}>1</div>
+      <div className={step === 1 ? "active" : ""}>2</div>
+      <div className={step === 2 ? "active" : ""}>3</div>
+    </div>
+  );
+};
+
+const Message = ({ message }) => {
+  return <p className="message">{message}</p>;
+};
+
+const Buttons = ({ handleNextStep, handlePreviousStep, step, setStep }) => {
+  return (
+    <div className="buttons">
+      <div>
+        <Button onClick={handlePreviousStep} text="Previous" />
+      </div>
+         
+      <div>
+        <Button onClick={handleNextStep} text="Next" />
+      </div>
+    </div>
+  );
+};
+
+const Button = ({ onClick, text }) => {
+  return <button onClick={onClick}>{text}</button>;
+};
 
 function App() {
+  const [step, setStep] = useState(0);
+  const [isOpen, setIsOpen] = useState(true);
+
+  const handleNextStep = () => (step < 2 ? setStep(step + 1) : "");
+  const handlePreviousStep = () => (step > 0 ? setStep(step - 1) : "");
+  const handleIsOpen = () => setIsOpen(!isOpen);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <button className="close" onClick={handleIsOpen}>
+        X
+      </button>
+      {isOpen && (
+        <div className="steps">
+          <Numbers step={step} />
+          <Message message={messages[step]} />
+          <Buttons
+            handleNextStep={handleNextStep}
+            handlePreviousStep={handlePreviousStep}
+            step={step}
+            setStep={setStep}
+          />
+        </div>
+      )}
+    </>
   );
 }
 
