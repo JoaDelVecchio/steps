@@ -34,7 +34,7 @@ body {
 }
 
 .numbers div.active {
-  background-color: #7950f2;
+  background-color: red;
   color: #ffffff;
 }
 
@@ -55,7 +55,7 @@ body {
   font-size: 14px;
   font-weight: bold;
   color: #ffffff;
-  background-color: #7950f2;
+  background-color: red;
   padding: 10px 15px;
   border-radius: 20px;
   border: none;
@@ -71,6 +71,6 @@ body {
 }
 
 .close:hover {
-  color: #7950f2;
+  color: red;
   font-size: 32px;
 }

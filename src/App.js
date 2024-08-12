@@ -1,9 +1,5 @@
 import { useState } from "react";
-const messages = [
-  "Learn React ⚛️",
-  "Apply for jobs 💼",
-  "Invest your new income 🤑",
-];
+const messages = ["Gym & Eat 🏋️‍♂️🍽️", "Work & Study 💻📚", "Sleep & Repeat 🛌🔄"];
 
 const Numbers = ({ step }) => {
   return (
@@ -41,9 +37,9 @@ function App() {
   const [step, setStep] = useState(0);
   const [isOpen, setIsOpen] = useState(true);
 
-  const handleNextStep = () => (step < 2 ? setStep(step + 1) : "");
-  const handlePreviousStep = () => (step > 0 ? setStep(step - 1) : "");
-  const handleIsOpen = () => setIsOpen(!isOpen);
+  const handleNextStep = () => (step < 2 ? setStep((s) => s + 1) : "");
+  const handlePreviousStep = () => (step > 0 ? setStep((s) => s - 1) : "");
+  const handleIsOpen = () => setIsOpen((is) => !is);
   return (
     <>
       <button className="close" onClick={handleIsOpen}>
