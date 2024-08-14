@@ -40,7 +40,9 @@ body {
 
 .message {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 40px 0;
   font-weight: bold;
   font-size: 20px;

@@ -63,7 +63,7 @@ function App() {
       {isOpen && (
         <div className="steps">
           <Numbers step={step} />
-          <Message message={messages[step]} />
+          <StepMessage step={step + 1}>{messages[step]}</StepMessage>
           <Buttons
             handleNextStep={handleNextStep}
             handlePreviousStep={handlePreviousStep}
@@ -75,5 +75,14 @@ function App() {
     </>
   );
 }
+
+const StepMessage = ({ children, step }) => {
+  return (
+    <div className="message">
+      <h3>Step {step}</h3>
+      {children}
+    </div>
+  );
+};
 
 export default App;
