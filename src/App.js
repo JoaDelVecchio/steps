@@ -19,18 +19,33 @@ const Buttons = ({ handleNextStep, handlePreviousStep, step, setStep }) => {
   return (
     <div className="buttons">
       <div>
-        <Button onClick={handlePreviousStep} text="Previous" />
+        <Button
+          onClick={handlePreviousStep}
+          backgrounColor="red"
+          textColor="#fff"
+        >
+          <span>⬅️ </span>Previous
+        </Button>
       </div>
          
       <div>
-        <Button onClick={handleNextStep} text="Next" />
+        <Button onClick={handleNextStep} backgrounColor="red" textColor="#fff">
+          Next<span> ➡️</span>
+        </Button>
       </div>
     </div>
   );
 };
 
-const Button = ({ onClick, text }) => {
-  return <button onClick={onClick}>{text}</button>;
+const Button = ({ onClick, backgroundColor, textColor, children }) => {
+  return (
+    <button
+      style={{ backgroundColor: backgroundColor, textColor: textColor }}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
 };
 
 function App() {
